@@ -5,6 +5,8 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public float speed = 5f;
+    public SpriteRenderer sr;
+
     // Start is called before the first frame update
     void Start()
     {
