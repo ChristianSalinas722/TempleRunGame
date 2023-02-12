@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    public float speed = 3f;
+    public float speed = 5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,9 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        GetComponent<Transform>().position += new Vector3(1,0,0) * speed * Time.deltaTime;
+        GetComponent<Transform>().position += new Vector3( Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0) * speed * Time.deltaTime;
+       
+
     }
 }
+ 
