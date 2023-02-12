@@ -17,8 +17,8 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        GetComponent<Transform>().position += new Vector3( Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0) * speed * Time.deltaTime;
-       
+       // transform.position += new Vector3( Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"),0) * speed * Time.deltaTime;
+       GetComponent<Rigidbody2D>().MovePosition(transform.position + (new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxis("Vertical"),0)) * Time.fixedDeltaTime * speed);
 
     }
 }
