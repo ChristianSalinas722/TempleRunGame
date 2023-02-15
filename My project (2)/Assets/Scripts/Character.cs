@@ -17,7 +17,7 @@ public class Character : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         //shots = GameObject.Find("Projectile").GetComponent<Shots>();
         shots = GameObject.FindGameObjectWithTag("PewPew").GetComponent<Shots>();
-        golds = GameObject.FindGameObjectsWithTag("Gold").GetComponent<Points>();
+        golds = GameObject.FindGameObjectWithTag("Gold").GetComponent<Points>();
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class Character : MonoBehaviour
         if(other.tag == "Gold"){
             Destroy(other.gameObject);
             speed += 1;
-
+            golds.ChangeGravity();
             
         }
 
