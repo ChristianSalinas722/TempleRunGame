@@ -33,7 +33,7 @@ public class Character : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other){
         //Debug.Log("it works");
         if(other.tag == "PewPew"){
-            //shots = other.GetComponent<Shots>();
+            other.GetComponent<Shots>().Boom();
         }
         if(other.tag == "Gold"){
             other.GetComponent<Points>().Eat();
