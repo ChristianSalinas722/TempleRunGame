@@ -31,13 +31,11 @@ public class Character : MonoBehaviour
          rb2d.MovePosition(transform.position + (new Vector3(Input.GetAxisRaw("Horizontal"),0,0)) * Time.fixedDeltaTime * speed);
     }
     private void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("it works");
         if(other.tag == "PewPew"){
             shots = other.GetComponent<Shots>();
         }
         if(other.tag == "Gold"){
-            Destroy(other.gameObject);
-            speed += 1;
+            Destroy(other.gameObject); 
             golds.ChangeGravity();
             
         }
