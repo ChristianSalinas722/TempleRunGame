@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class Character : MonoBehaviour
      public Shots shots;
 
      public Points golds;
+
+     [Header ("Text Elements")]
+     public Text pointText;
+     int goldPoints = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +41,8 @@ public class Character : MonoBehaviour
             other.GetComponent<Shots>().Boom();
         }
         if(other.tag == "Gold"){
+            goldPoints += 1;
+            pointText.text = goldPoints.ToString();
             other.GetComponent<Points>().Eat();
             //Destroy(other.gameObject);
             
