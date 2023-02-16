@@ -22,11 +22,11 @@ public class GoldMaker : MonoBehaviour
         StartCoroutine(GenertateGold());
     }
     IEnumerator GenertateGold(){
-       Vector2 radomPosition = new Vector2(Random.Range(-3.61f,2.33f),6.75f);
-        float randomNum = Random.Range(1f,2f);
         while(true){
-             yield return new WaitForSeconds(randomNum);
-             yield return null;
+            Vector2 radomPosition = new Vector2(Random.Range(-3.61f,2.33f),6.75f);
+            float randomNum = Random.Range(1f,2f);
+            yield return new WaitForSeconds(randomNum);
+            yield return null;
         //yield return new WaitForSeconds(4);
         //yield return null;
         //yield return new WaitForSeconds(Time.fixedDeltaTime);
@@ -35,11 +35,12 @@ public class GoldMaker : MonoBehaviour
         }
     }
     IEnumerator GenertateProjectiles(){
-        Vector2 radomPosition = new Vector2(Random.Range(-3.61f,2.33f),6.75f);
-        float randomNum = Random.Range(1f,2f);
+       
         while(true){
-             yield return new WaitForSeconds(randomNum);
-             yield return null;
+            Vector2 radomPosition = new Vector2(Random.Range(-3.61f,2.33f),6.75f);
+            float randomNum = Random.Range(1f,2f);
+            yield return new WaitForSeconds(randomNum);
+            yield return null;
         //yield return new WaitForSeconds(4);
         //yield return null;
         //yield return new WaitForSeconds(Time.fixedDeltaTime);
