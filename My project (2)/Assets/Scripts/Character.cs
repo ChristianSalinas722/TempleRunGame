@@ -31,16 +31,17 @@ public class Character : MonoBehaviour
          rb2d.MovePosition(transform.position + (new Vector3(Input.GetAxisRaw("Horizontal"),0,0)) * Time.fixedDeltaTime * speed);
     }
     private void OnTriggerEnter2D(Collider2D other){
+        //Debug.Log("it works");
         if(other.tag == "PewPew"){
-            shots = other.GetComponent<Shots>();
+            //shots = other.GetComponent<Shots>();
         }
         if(other.tag == "Gold"){
-            Destroy(other.gameObject); 
-            golds.ChangeGravity();
+            other.GetComponent<Points>().Eat();
+            //Destroy(other.gameObject);
             
         }
 
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
     }
 }
  
