@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Points : MonoBehaviour
 {
-    Rigidbody2D goldRd;
-    public float gravity;
-    public void ChangeGravity(){
-        goldRd.AddForce(Vector2.down * gravity * goldRd.mass);
+    public void Eat(){
+        GetComponent<AudioSource>().pitch = Random.Range(.7f,1.1f);
+        GetComponent<AudioSource>().Play();
+        transform.position = new Vector3(1000000,0,0);
+        Destroy(this.gameObject,2);
     }
 }

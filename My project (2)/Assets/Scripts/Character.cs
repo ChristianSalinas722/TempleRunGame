@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character : MonoBehaviour
 {
@@ -11,13 +12,17 @@ public class Character : MonoBehaviour
 
      public Points golds;
 
+     [Header ("Text Elements")]
+     public Text pointText;
+     int goldPoints = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         //shots = GameObject.Find("Projectile").GetComponent<Shots>();
         shots = GameObject.FindGameObjectWithTag("PewPew").GetComponent<Shots>();
-        golds = GameObject.FindGameObjectsWithTag("Gold").GetComponent<Points>();
+        golds = GameObject.FindGameObjectWithTag("Gold").GetComponent<Points>();
     }
 
     // Update is called once per frame
@@ -31,18 +36,19 @@ public class Character : MonoBehaviour
          rb2d.MovePosition(transform.position + (new Vector3(Input.GetAxisRaw("Horizontal"),0,0)) * Time.fixedDeltaTime * speed);
     }
     private void OnTriggerEnter2D(Collider2D other){
-        Debug.Log("it works");
+        //Debug.Log("it works");
         if(other.tag == "PewPew"){
-            shots = other.GetComponent<Shots>();
+            other.GetComponent<Shots>().Boom();
         }
         if(other.tag == "Gold"){
-            Destroy(other.gameObject);
-            speed += 1;
-
+            goldPoints += 1;
+            pointText.text = goldPoints.ToString();
+            other.GetComponent<Points>().Eat();
+            //Destroy(other.gameObject);
             
         }
 
-        Destroy(other.gameObject);
+        //Destroy(other.gameObject);
     }
 }
  
